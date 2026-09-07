@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Report Delete Confirmation Page{% endblock %}
+
+{% block content %}
+<h1 class="container">Deletion Report Details: {{report.item_name}}</h1>
+
+<div class="d-flex justify-content-around align-items-start ms-5" style="width: 35rem;">
+    <div>
+        <img src="{{report.image.url}}" class="card-img-top" alt="...">
+    </div>
+    <div>
+        <h5 class="card-title">{{report.item_name}}</h5>
+        <div>
+            <p class="card-text">{{report.id}}</p>
+            <p class="card-text">{{report.type}}</p>
+            <p class="card-text">{{report.category}}</p>
+            <p class="card-text">{{report.description}}</p>
+            <p class="card-text">{{report.location}}</p>
+            <p class="card-text">{{report.date}}</p>
+            <p class="card-text">{{report.contact_info}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        <h1>Are you sure you want to delete the report: "{{ report.item_name }}"?</h1>
+        
+        <button type="submit" class='btn btn-danger'>Confirm Delete</button>
+        <a href="{% url 'report-list' %}" class='btn btn-primary'>Cancel</a>
+    </form>
+</div>
+
+{% endblock %}

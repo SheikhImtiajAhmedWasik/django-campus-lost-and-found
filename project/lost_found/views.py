@@ -39,4 +39,8 @@ class ReportUpdateView(UpdateView):
 
 
 class ReportDeleteView(DeleteView):
-    pass
+    model = Report
+    pk_url_kwarg = 'id'
+    context_object_name = 'report'
+    success_url = reverse_lazy('report-list')
+    template_name = 'lost_found/report_delete_confirmation.html'
