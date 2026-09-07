@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to Campus Lost and Found Management System</h1>
+    <p>
+        All the lost and found reports: <a href="{% url 'report-list' %}" class="btn btn-primary">All Report</a>
+    </p>
+    <p>
+        Make a lost or found report: <a href="{% url 'report-create' %}" class="btn btn-primary">Create Report</a>
+    </p>
+    
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}Report Detail Page{% endblock %}
+
+{% block content %}
+{% comment %} <h1 class="container">Detail Report of {{report.item_name}}</h1> {% endcomment %}
+
+{% comment %} <div class="container" style="width: 18rem;">
+    <img src="{{report.image.url}}" class="card-img-top" alt="...">
+    <div class="container">
+        <h5 class="card-title">{{report.item_name}}</h5>
+        <div>
+            <p class="card-text">{{report.id}}</p>
+            <p class="card-text">{{report.type}}</p>
+            <p class="card-text">{{report.category}}</p>
+            <p class="card-text">{{report.description}}</p>
+            <p class="card-text">{{report.location}}</p>
+            <p class="card-text">{{report.date}}</p>
+            <p class="card-text">{{report.contact_info}}</p>
+        </div>
+
+        <a href="{% url 'report-list' %}" class="btn btn-primary">Back</a>
+        <a href="#" class="btn btn-warning">Resolved</a>
+    </div>
+</div> {% endcomment %}
+
+
+
+<div class="container my-5" style="max-width: 600px;">
+    <!-- Simple Title -->
+    <h2 class="mb-4 text-center">Detail Report of {{report.item_name}}</h2>
+
+    <!-- Single Clean Card -->
+    <div class="card shadow-sm">
+        <!-- Main Image -->
+        <img src="{{ report.image.url }}" class="card-img-top" alt="{{ report.item_name }}">
+        
+        <div class="card-body">
+            <!-- Item Name and ID -->
+            <h4 class="card-title mb-3">{{ report.item_name }} <small class="text-muted">(#{{ report.id }})</small></h4>
+            
+            <!-- Information List -->
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item"><strong>Type:</strong> {{ report.type }}</li>
+                <li class="list-group-item"><strong>Category:</strong> {{ report.category }}</li>
+                <li class="list-group-item"><strong>Description:</strong> {{ report.description }}</li>
+                <li class="list-group-item"><strong>Location:</strong> {{ report.location }}</li>
+                <li class="list-group-item"><strong>Date:</strong> {{ report.date }}</li>
+                <li class="list-group-item"><strong>Contact:</strong> {{ report.contact_info }}</li>
+            </ul>
+
+            <!-- Action Buttons -->
+            <div class="d-flex gap-2">
+                <a href="{% url 'report-list' %}" class="btn btn-secondary w-50">Back</a>
+                <a href="#" class="btn btn-warning w-50">Mark Resolved</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
