@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', HomeView.as_view(), name='home-page'),
     path('', include('lost_found.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
 
 if settings.DEBUG == True:
